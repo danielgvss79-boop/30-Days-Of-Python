@@ -50,7 +50,7 @@ sentence = 'I am a teacher and I love to inspire and teach people. How many uniq
 sentence = sentence.split()
 letters = set()
 for word in sentence:
-    set(word)
+    word = set(word)
     letters = letters.union(word)
 print(letters)
 print(len(letters))
