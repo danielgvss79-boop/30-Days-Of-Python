@@ -143,4 +143,32 @@ print(len(unique_languages))
 print(unique_languages)
 
 # Find the ten most spoken languages from the data
+languages_list=[]
+for country in data:
+    languages_list.extend(country['languages'])
+
+counts=[]
+languages_set=set()
+for language in languages_list:
+    if language in languages_set:
+        pass
+    else:
+        languages_set.add(language)
+        language_count=languages_list.count(language)
+        counts.append((language_count,language))
+
+counts.sort(reverse=True)
+print(counts[:10])
+
 # Find the 10 most populated countries in the world
+
+pops=[]
+for population in data:
+    pops.append((population['population'],population['name']))
+
+pops.sort(reverse=True)
+pops=pops[:10]
+
+for numbers, name in pops:
+    print(f'{name}:{numbers}')
+
