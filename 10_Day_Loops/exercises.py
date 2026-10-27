@@ -170,5 +170,5 @@ pops.sort(reverse=True)
 pops=pops[:10]
 
 for numbers, name in pops:
-    print(f'{name}:{numbers}')
+    print(f'{name}: {numbers}')
 
