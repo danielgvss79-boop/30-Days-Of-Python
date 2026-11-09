@@ -59,9 +59,21 @@ print(check_season('november'))
 
 # Write a function called calculate_slope which return the slope of a linear equation
 
-# Quadratic equation is calculated as follows: ax² + bx + c = 0. Write a function which calculates solution set of a quadratic equation, solve_quadratic_eqn.
+def calculate_slope(x1, y1, x2, y2):
+    slope=(y2-y1)/(x2-x1)
+    return slope
+
+print(calculate_slope(8,5,3,4))
 
 # Declare a function named print_list. It takes a list as a parameter and it prints out each element of the list.
+
+def print_list(list):
+    elements = []
+    for element in list:
+        elements.append(element)
+    return elements
+
+print(print_list([2,4,6,8]))
 
 # Declare a function named reverse_list. It takes an array as a parameter and it returns the reverse of the array (use loops).
 
@@ -71,17 +83,38 @@ print(check_season('november'))
 # print(reverse_list(["A", "B", "C"]))
 # # ["C", "B", "A"]
 
+def reverse_list(array):
+    numbers = []
+    count = -1
+    for digit in array:
+        numbers.append(array[count])
+        count = count -1
+    return numbers
+
+print(reverse_list(['A',2,3,4,5]))
+
 # Declare a function named capitalize_list_items. It takes a list as a parameter and it returns a capitalized list of items
+
+def capitalize_list_items(list):
+    upper_words=[]
+    for word in list:
+        if type(word) == str:
+            upper_words.append(word.upper())
+        else:
+            print(f'{word} is not a string')
+    return upper_words
+
+print(capitalize_list_items(['daniel','g','v',7]))
+
+
 
 # Declare a function named add_item. It takes a list and an item parameters. It returns a list with the item added at the end.
 
-# food_stuff = ['Potato', 'Tomato', 'Mango', 'Milk'];
+def add_item(list,item):
+    list.append(item)
+    return list
 
-# print(add_item(food_stuff, 'Meat'))     # ['Potato', 'Tomato', 'Mango', 'Milk','Meat'];
-
-# numbers = [2, 3, 7, 9];
-# print(add_item(numbers, 5))      # [2, 3, 7, 9, 5]
-#
+print(add_item([1,4,6,'a'],'good job'))
 
 # Declare a function named remove_item. It takes a list and an item parameters. It returns a list with the item removed from it.
 # food_stuff = ['Potato', 'Tomato', 'Mango', 'Milk']
@@ -89,12 +122,31 @@ print(check_season('november'))
 # numbers = [2, 3, 7, 9]
 # print(remove_item(numbers, 3))  # [2, 7, 9]
 
+def remove_item(list,item):
+    if item in list:
+        list.remove(item)
+    else:
+        print(f"{item} is not in the list, can't be deleted")
+    return list
+
+print(remove_item([1,4,6,'a'],'a'))
+
 # Declare a function named sum_of_numbers. It takes a number parameter and it adds all the numbers in that range.
 # print(sum_of_numbers(5))  # 15
 # print(sum_of_numbers(10)) # 55
 # print(sum_of_numbers(100)) # 5050
 # Declare a function named sum_of_odds. It takes a number parameter and it adds all the odd numbers in that range.
 # Declare a function named sum_of_even. It takes a number parameter and it adds all the even numbers in that - range.
+
+def sum_of_numbers(number):
+    sum=number
+    for number in range(number+1):
+            number= number - 1
+            sum = sum + number
+    return sum
+
+print(sum_of_numbers(100))
+
 
 # Exercises: Level 2
 
