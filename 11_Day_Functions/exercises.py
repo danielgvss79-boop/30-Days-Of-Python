@@ -154,9 +154,39 @@ print(sum_of_numbers(100))
 #     print(evens_and_odds(100))
 #     # The number of odds are 50.
 #     # The number of evens are 51.
+
+def evens_and_odds(integer):
+    evens = 0
+    odds = 0
+    for number in range(integer+1):
+        if number % 2 == 0:
+            evens = evens + 1
+        else:
+            odds = odds + 1
+    return f'odds are {odds} and evens are {evens}'
+
+print(evens_and_odds(100))
+
+
 # Call your function factorial, it takes a whole number as a parameter and it return a factorial of the number
+
+def factorial(number):
+    result = 1
+    for number in range(1,number+1):
+        result = number * result
+    return f'The factorial of {number}: {result}'
+
+print(factorial(4))
+
+
 # Call your function is_empty, it takes a parameter and it checks if it is empty or not
-# Write different functions which take lists. They should calculate_mean, calculate_median, calculate_mode, calculate_range, calculate_variance, calculate_std (standard deviation).
+
+def is_empty(list):
+    # if empty returns false if not returns true
+    return bool(list)
+
+print(is_empty([1]))
+
 # Write a function called greet which takes a default argument, name. If no argument is supplied it should print "Hello, Guest!", otherwise it should greet the person by name.
 #     greet()
 #     # "Hello, Guest!
