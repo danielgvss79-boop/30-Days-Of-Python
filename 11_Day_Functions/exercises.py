@@ -192,17 +192,81 @@ print(is_empty([1]))
 #     # "Hello, Guest!
 #     greet("Alice")
 #     # "Hello, Alice!"
+
+def greet(name):
+    if name != '':
+        return f'Hello, {name}'
+    else:
+        return f'Hello, Guest!'
+
+print(greet(''))
+
 # Create a function called show_args to take an arbitrary number of named arguments and print their names and values.
 # show_args(name="Alice", age=30, city="New York")
 # # Received: name: Alice, age: 30, city: New York
 # show_args(name="Bob", pet="Fluffy, the bunny")
 # # Received: name: Bob, pet: Fluffy, the bunny
 
+def show_args(**kwargs):
+    for key, value in kwargs.items():
+        print(f'key:{key}, value:{value}')
+
+show_args(name="Alice", age=30, city="New York")
+
+
 # Exercises: Level 3
 
 # Write a function called is_prime, which checks if a number is prime.
+
+def is_prime(number):
+
+    if (number == 2) | (number == 3):
+        return f'prime'
+    elif (number % 2 != 0) & (number % 3 != 0):
+        return f'prime'
+    else:
+        return f'not prime'
+
+print(is_prime(7))
+
 # Write a functions which checks if all items are unique in the list.
+
+def check_items(all_items):
+    unique = []
+    repeated = set()
+    for element in all_items:
+        if element not in unique:
+            unique.append(element)
+        else:
+            repeated.add(element)
+
+    return f'Unique: {unique}, Reapeated: {repeated}'
+
+print(check_items([1,2,3,4,4,4,4,5]))
+
 # Write a function which checks if all the items of the list are of the same data type.
+def check_dtypes(elements):
+     integers = 0
+     floats = 0
+     booleans = 0
+     strings = 0
+
+     for element in elements:
+         if isinstance(element, int) & (floats == 0) & (booleans == 0) & (strings == 0):
+             integers += 1
+         elif isinstance(element, float) & (integers == 0) & (booleans == 0) & (strings == 0):
+             floats += 1
+         elif isinstance(element, bool) & (floats == 0) & (integers == 0) & (strings == 0):
+             booleans += 1
+         elif isinstance(element, str) & (floats == 0) & (booleans == 0) & (integers == 0):
+             strings += 1
+         else:
+             return f'different dtypes'
+
+     return f'same dtypes'
+
+print(check_dtypes([1.1,2.1,3.1,4.1]))
+
 # Write a function which check if provided variable is a valid python variable
 # Go to the data folder and access the countries-data.py file.
 # Create a function called the most_spoken_languages in the world. It should return 10 or 20 most spoken languages in the world in descending order
