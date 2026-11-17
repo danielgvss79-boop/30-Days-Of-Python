@@ -252,12 +252,12 @@ def check_dtypes(elements):
      strings = 0
 
      for element in elements:
-         if isinstance(element, int) & (floats == 0) & (booleans == 0) & (strings == 0):
-             integers += 1
-         elif isinstance(element, float) & (integers == 0) & (booleans == 0) & (strings == 0):
+         if isinstance(element, float) & (integers == 0) & (booleans == 0) & (strings == 0):
              floats += 1
          elif isinstance(element, bool) & (floats == 0) & (integers == 0) & (strings == 0):
              booleans += 1
+         elif isinstance(element, int) & (floats == 0) & (booleans == 0) & (strings == 0):
+             integers += 1
          elif isinstance(element, str) & (floats == 0) & (booleans == 0) & (integers == 0):
              strings += 1
          else:
