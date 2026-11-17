@@ -1,5 +1,6 @@
 # 💻 Exercises: Day 11
 import math
+from data.countries_data import data
 
 # Exercises: Level 1
 
@@ -268,7 +269,53 @@ def check_dtypes(elements):
 print(check_dtypes([1.1,2.1,3.1,4.1]))
 
 # Write a function which check if provided variable is a valid python variable
+
+def valid_variable(name):
+    if name[0].isdigit():
+        return False
+    for char in name:
+        if not ((char.isalnum()) or (char == '_')):
+            return False
+    else:
+        return True
+
+print(valid_variable('dan%ny'))
+
 # Go to the data folder and access the countries-data.py file.
-# Create a function called the most_spoken_languages in the world. It should return 10 or 20 most spoken languages in the world in descending order
-# Create a function called the most_populated_countries. It should return 10 or 20 most populated countries in descending order.
+# Create a function called the most_spoken_languages in the world.
+# It should return 10 or 20 most spoken languages in the world in descending order
+
+def most_spoken_languages(countries, top=10):
+    languages = []
+    count = {}
+
+    for country in countries:
+        languages.extend(country['languages'])
+
+    for language in languages:
+        count[language] = languages.count(language)
+
+    #count.items() convierte el diccionario en pares (idioma, cantidad), por ejemplo ('English', 91)
+    #key=lambda item: item[1] le dice a sorted() que ordene usando la posición 1 de cada par, o sea la cantidad.
+    #Sin esto ordenaría alfabéticamente por idioma. lambda es una función mini, de una línea; la verás en el Día 13.
+    ordered = sorted(count.items(), key=lambda item: item[1], reverse=True)
+
+    return ordered[:top]
+
+print(most_spoken_languages(data))
+
+# Create a function called the most_populated_countries.
+
+def most_populated_countries(countries):
+    population= []
+    for country in countries:
+        individual_data = (country['population'], country['name'])
+        population.append(individual_data)
+
+    population = sorted(population, reverse = True)
+
+    return population
+
+print(most_populated_countries(data))
+
 # 🎉 CONGRATULATIONS ! 🎉
